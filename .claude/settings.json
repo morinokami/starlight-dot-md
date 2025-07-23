@@ -1,0 +1,38 @@
+{
+	"permissions": {
+		"disableBypassPermissionsMode": "disable",
+		"defaultMode": "default",
+		"allow": [
+			"Bash(pnpm lint)",
+			"Bash(pnpm test:*)",
+			"Bash(pnpm typecheck)",
+			"Bash(rg:*)",
+			"Bash(find:*)",
+			"Bash(ls:*)",
+			"Bash(grep:*)",
+			"Bash(diff:*)",
+			"Bash(mkdir:*)",
+			"Bash(cat:*)"
+		],
+		"deny": [
+			"Bash(sudo:*)",
+			"Bash(rm -rf:*)",
+			"Bash(curl:*)",
+			"Read(.env*)",
+			"Edit(.env*)"
+		]
+	},
+	"hooks": {
+		"PostToolUse": [
+			{
+				"matcher": "Edit|Write|MultiEdit",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "pnpm lint"
+					}
+				]
+			}
+		]
+	}
+}

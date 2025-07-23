@@ -5,7 +5,8 @@
 	"packageManager": "pnpm@10.13.1",
 	"scripts": {
 		"dot-md": "pnpm --filter \"astro-dot-md\"",
-		"playground": "pnpm --filter \"playground\""
+		"playground": "pnpm --filter \"playground\"",
+		"lint": "biome check --write"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "catalog:"
