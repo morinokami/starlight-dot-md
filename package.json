@@ -1,0 +1,13 @@
+{
+	"private": true,
+	"name": "astro-dot-md-root",
+	"type": "module",
+	"packageManager": "pnpm@10.13.1",
+	"scripts": {
+		"dot-md": "pnpm --filter \"astro-dot-md\"",
+		"playground": "pnpm --filter \"playground\""
+	},
+	"devDependencies": {
+		"@biomejs/biome": "catalog:"
+	}
+}

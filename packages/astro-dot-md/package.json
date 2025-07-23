@@ -1,0 +1,42 @@
+{
+	"name": "astro-dot-md",
+	"version": "0.0.1",
+	"description": "TODO: Append `.md` to the end of the file name to render it as a markdown file.",
+	"keywords": [
+		"astro-integration",
+		"astro-component",
+		"ai"
+	],
+	"author": "Shinya Fujino <shf0811@gmail.com> (https://github.com/morinokami)",
+	"license": "MIT",
+	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/morinokami/astro-dot-md.git",
+		"directory": "packages/astro-dot-md"
+	},
+	"bugs": {
+		"url": "https://github.com/morinokami/astro-dot-md/issues"
+	},
+	"exports": {
+		".": "./dist/index.js"
+	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsdown",
+		"typecheck": "tsc --noEmit"
+	},
+	"devDependencies": {
+		"astro": "catalog:",
+		"tsdown": "catalog:",
+		"typescript": "catalog:"
+	},
+	"peerDependencies": {
+		"astro": ">=5.0.0"
+	}
+}
