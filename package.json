@@ -3,6 +3,12 @@
 	"name": "starlight-dot-md-root",
 	"type": "module",
 	"packageManager": "pnpm@10.28.0",
+	"devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.12.0"
+    }
+  },
 	"scripts": {
 		"dot-md": "pnpm --filter \"starlight-dot-md\"",
 		"playground": "pnpm --filter \"playground\"",
