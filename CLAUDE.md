@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an Astro integration called "astro-dot-md" that allows appending `.md` to file names to render them as markdown files. The integration is currently in early development.
+This is an Astro integration called "starlight-dot-md" that allows appending `.md` to file names to render them as markdown files. The integration is currently in early development.
 
 ## Repository Structure
 
 This is a pnpm monorepo with two main workspaces:
-- `packages/astro-dot-md/` - The main Astro integration package
+- `packages/starlight-dot-md/` - The main Astro integration package
 - `playground/` - Testing environment for the integration using Astro Starlight
 
 ## Development Commands
@@ -28,7 +28,7 @@ pnpm biome lint .       # Run linter only
 pnpm biome format .     # Run formatter only
 ```
 
-### Package Development (`packages/astro-dot-md/`)
+### Package Development (`packages/starlight-dot-md/`)
 ```bash
 pnpm dot-md build       # Build the package using tsdown
 pnpm dot-md typecheck   # Run TypeScript type checking
@@ -43,18 +43,18 @@ pnpm playground preview # Preview production build
 
 ## Architecture
 
-The main integration is implemented in `packages/astro-dot-md/src/index.ts` as an Astro integration that exports a function returning an integration object with hooks. The actual functionality to handle `.md` file extensions needs to be implemented in the hooks.
+The main integration is implemented in `packages/starlight-dot-md/src/index.ts` as an Astro integration that exports a function returning an integration object with hooks. The actual functionality to handle `.md` file extensions needs to be implemented in the hooks.
 
 ## Key Technical Details
 
-- **Build Tool**: tsdown (configured in `packages/astro-dot-md/tsdown.config.ts`)
+- **Build Tool**: tsdown (configured in `packages/starlight-dot-md/tsdown.config.ts`)
 - **Code Style**: Biome with tab indentation and double quotes
 - **TypeScript**: Strict mode for type checking
 - **Package Manager**: pnpm with workspaces and catalog dependencies
 
 ## Development Workflow
 
-1. Make changes in `packages/astro-dot-md/src/`
+1. Make changes in `packages/starlight-dot-md/src/`
 2. Run `pnpm dot-md build` to compile the package
 3. Test changes with `pnpm playground dev` (integration is already configured)
 4. Run `pnpm biome check .` before committing

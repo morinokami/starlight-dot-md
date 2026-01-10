@@ -2,7 +2,7 @@
 
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
-import astroDotMd from "astro-dot-md";
+import starlightDotMd from "starlight-dot-md";
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,6 +30,6 @@ export default defineConfig({
 				},
 			],
 		}),
-		astroDotMd(),
+		starlightDotMd(),
 	],
 });
