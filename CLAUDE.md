@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Starlight integration that copies markdown source files to the build output directory, allowing users to access raw `.md` files by appending `.md` to page URLs.
+This is a Starlight integration that exposes raw markdown files at `.md` URLs. Users can access the raw markdown source by appending `.md` to any documentation page URL.
 
 ## Repository Structure
 
@@ -43,13 +43,28 @@ pnpm playground preview # Preview production build
 
 ## Architecture
 
-The main integration is implemented in `packages/starlight-dot-md/src/index.ts` as an Astro integration. It scans `src/content/docs/` for markdown files and copies them to the output directory after build.
+The integration consists of two main files:
+
+- **`src/index.ts`** - Astro integration entry point that uses `injectRoute` to register the markdown endpoint
+- **`src/slug.md.ts`** - Static/dynamic endpoint that serves raw markdown content from Starlight's `docs` collection
+
+### How It Works
+
+1. The integration injects a route pattern `/[...slug].md` via `astro:config:setup`
+2. The endpoint uses `getCollection("docs")` for SSG route generation (`getStaticPaths`)
+3. The endpoint uses `getEntry("docs", slug)` to fetch content on each request (`GET`)
+4. Returns raw markdown with `Content-Type: text/markdown; charset=utf-8`
+
+### SSG/SSR Support
+
+- **SSG mode**: Routes are pre-generated at build time via `getStaticPaths`
+- **SSR mode**: Routes are dynamically handled via `GET`, with proper Content-Type headers
 
 ## Key Technical Details
 
 - **Build Tool**: tsdown (configured in `packages/starlight-dot-md/tsdown.config.ts`)
 - **Code Style**: Biome with tab indentation and double quotes
-- **TypeScript**: Strict mode for type checking
+- **TypeScript**: Strictest mode for type checking
 - **Package Manager**: pnpm with workspaces and catalog dependencies
 
 ## Development Workflow
@@ -61,6 +76,5 @@ The main integration is implemented in `packages/starlight-dot-md/src/index.ts` 
 
 ## Integration Hook Points
 
-The Astro integration uses the following hooks:
-- `astro:config:setup` - Capture the source directory path
-- `astro:build:done` - Copy markdown files to the output directory
+The Astro integration uses the following hook:
+- `astro:config:setup` - Inject the `/[...slug].md` route via `injectRoute`

@@ -3,9 +3,10 @@
 	"version": "0.0.1",
 	"description": "A Starlight integration that exposes raw markdown files at `.md` URLs.",
 	"keywords": [
-		"astro-integration",
-		"astro-component",
+		"astro",
 		"withastro",
+		"astro-component",
+		"astro-integration",
 		"starlight",
 		"ai"
 	],
@@ -21,7 +22,8 @@
 		"url": "https://github.com/morinokami/starlight-dot-md/issues"
 	},
 	"exports": {
-		".": "./dist/index.mjs"
+		".": "./dist/index.mjs",
+		"./slug.md": "./dist/slug.md.mjs"
 	},
 	"main": "./dist/index.mjs",
 	"module": "./dist/index.mjs",

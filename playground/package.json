@@ -11,6 +11,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@astrojs/node": "9.5.1",
 		"@astrojs/starlight": "catalog:",
 		"astro": "catalog:",
 		"starlight-dot-md": "workspace:*",
