@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an Astro integration called "starlight-dot-md" that allows appending `.md` to file names to render them as markdown files. The integration is currently in early development.
+This is a Starlight integration that copies markdown source files to the build output directory, allowing users to access raw `.md` files by appending `.md` to page URLs.
 
 ## Repository Structure
 
@@ -43,7 +43,7 @@ pnpm playground preview # Preview production build
 
 ## Architecture
 
-The main integration is implemented in `packages/starlight-dot-md/src/index.ts` as an Astro integration that exports a function returning an integration object with hooks. The actual functionality to handle `.md` file extensions needs to be implemented in the hooks.
+The main integration is implemented in `packages/starlight-dot-md/src/index.ts` as an Astro integration. It scans `src/content/docs/` for markdown files and copies them to the output directory after build.
 
 ## Key Technical Details
 
@@ -61,7 +61,6 @@ The main integration is implemented in `packages/starlight-dot-md/src/index.ts` 
 
 ## Integration Hook Points
 
-The Astro integration should implement the following hooks to handle `.md` file extensions:
-- `astro:config:setup` - Configure the integration and add middleware
-- `astro:server:setup` - Handle development server requests for `.md` files
-- `astro:build:setup` - Configure build process for `.md` file handling
+The Astro integration uses the following hooks:
+- `astro:config:setup` - Capture the source directory path
+- `astro:build:done` - Copy markdown files to the output directory

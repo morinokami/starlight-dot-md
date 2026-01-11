@@ -49,8 +49,8 @@ export default function astroDotMd(): AstroIntegration {
 				let copiedCount = 0;
 
 				for (const file of files) {
-					// src/content/docs/guides/example.md → guides/example.md
-					// src/content/docs/index.mdx → index.md (normalize extension)
+					// e.g. src/content/docs/guides/example.md → guides/example.md
+					// e.g. src/content/docs/index.mdx → index.md (normalize extension)
 					const relativePath = relative(contentDir, file).replace(
 						/\.mdx$/,
 						".md",
@@ -68,9 +68,7 @@ export default function astroDotMd(): AstroIntegration {
 					copiedCount++;
 				}
 
-				logger.info(
-					`Copied ${copiedCount} md(x) file(s) to output directory`,
-				);
+				logger.info(`Copied ${copiedCount} md(x) file(s) to output directory`);
 			},
 		},
 	};

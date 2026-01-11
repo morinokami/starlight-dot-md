@@ -1,10 +1,12 @@
 {
 	"name": "starlight-dot-md",
 	"version": "0.0.1",
-	"description": "TODO: Append `.md` to the end of the file name to render it as a markdown file.",
+	"description": "A Starlight integration that exposes raw markdown files at `.md` URLs.",
 	"keywords": [
 		"astro-integration",
 		"astro-component",
+		"withastro",
+		"starlight",
 		"ai"
 	],
 	"author": "Shinya Fujino <shf0811@gmail.com> (https://github.com/morinokami)",
