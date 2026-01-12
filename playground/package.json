@@ -11,9 +11,10 @@
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@astrojs/node": "9.5.1",
 		"@astrojs/starlight": "catalog:",
 		"astro": "catalog:",
-		"astro-dot-md": "workspace:*",
+		"starlight-dot-md": "workspace:*",
 		"sharp": "catalog:"
 	}
 }

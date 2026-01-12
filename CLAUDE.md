@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an Astro integration called "astro-dot-md" that allows appending `.md` to file names to render them as markdown files. The integration is currently in early development.
+This is a Starlight integration that exposes raw markdown files at `.md` URLs. Users can access the raw markdown source by appending `.md` to any documentation page URL.
 
 ## Repository Structure
 
 This is a pnpm monorepo with two main workspaces:
-- `packages/astro-dot-md/` - The main Astro integration package
+- `packages/starlight-dot-md/` - The main Astro integration package
 - `playground/` - Testing environment for the integration using Astro Starlight
 
 ## Development Commands
@@ -28,7 +28,7 @@ pnpm biome lint .       # Run linter only
 pnpm biome format .     # Run formatter only
 ```
 
-### Package Development (`packages/astro-dot-md/`)
+### Package Development (`packages/starlight-dot-md/`)
 ```bash
 pnpm dot-md build       # Build the package using tsdown
 pnpm dot-md typecheck   # Run TypeScript type checking
@@ -43,25 +43,38 @@ pnpm playground preview # Preview production build
 
 ## Architecture
 
-The main integration is implemented in `packages/astro-dot-md/src/index.ts` as an Astro integration that exports a function returning an integration object with hooks. The actual functionality to handle `.md` file extensions needs to be implemented in the hooks.
+The integration consists of two main files:
+
+- **`src/index.ts`** - Astro integration entry point that uses `injectRoute` to register the markdown endpoint
+- **`src/slug.md.ts`** - Static/dynamic endpoint that serves raw markdown content from Starlight's `docs` collection
+
+### How It Works
+
+1. The integration injects a route pattern `/[...slug].md` via `astro:config:setup`
+2. The endpoint uses `getCollection("docs")` for SSG route generation (`getStaticPaths`)
+3. The endpoint uses `getEntry("docs", slug)` to fetch content on each request (`GET`)
+4. Returns raw markdown with `Content-Type: text/markdown; charset=utf-8`
+
+### SSG/SSR Support
+
+- **SSG mode**: Routes are pre-generated at build time via `getStaticPaths`
+- **SSR mode**: Routes are dynamically handled via `GET`, with proper Content-Type headers
 
 ## Key Technical Details
 
-- **Build Tool**: tsdown (configured in `packages/astro-dot-md/tsdown.config.ts`)
+- **Build Tool**: tsdown (configured in `packages/starlight-dot-md/tsdown.config.ts`)
 - **Code Style**: Biome with tab indentation and double quotes
-- **TypeScript**: Strict mode for type checking
+- **TypeScript**: Strictest mode for type checking
 - **Package Manager**: pnpm with workspaces and catalog dependencies
 
 ## Development Workflow
 
-1. Make changes in `packages/astro-dot-md/src/`
+1. Make changes in `packages/starlight-dot-md/src/`
 2. Run `pnpm dot-md build` to compile the package
 3. Test changes with `pnpm playground dev` (integration is already configured)
 4. Run `pnpm biome check .` before committing
 
 ## Integration Hook Points
 
-The Astro integration should implement the following hooks to handle `.md` file extensions:
-- `astro:config:setup` - Configure the integration and add middleware
-- `astro:server:setup` - Handle development server requests for `.md` files
-- `astro:build:setup` - Configure build process for `.md` file handling
+The Astro integration uses the following hook:
+- `astro:config:setup` - Inject the `/[...slug].md` route via `injectRoute`

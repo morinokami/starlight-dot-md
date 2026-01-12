@@ -1,10 +1,13 @@
 {
-	"name": "astro-dot-md",
+	"name": "starlight-dot-md",
 	"version": "0.0.1",
-	"description": "TODO: Append `.md` to the end of the file name to render it as a markdown file.",
+	"description": "A Starlight integration that exposes raw markdown files at `.md` URLs.",
 	"keywords": [
-		"astro-integration",
+		"astro",
+		"withastro",
 		"astro-component",
+		"astro-integration",
+		"starlight",
 		"ai"
 	],
 	"author": "Shinya Fujino <shf0811@gmail.com> (https://github.com/morinokami)",
@@ -12,14 +15,15 @@
 	"type": "module",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/morinokami/astro-dot-md.git",
-		"directory": "packages/astro-dot-md"
+		"url": "https://github.com/morinokami/starlight-dot-md.git",
+		"directory": "packages/starlight-dot-md"
 	},
 	"bugs": {
-		"url": "https://github.com/morinokami/astro-dot-md/issues"
+		"url": "https://github.com/morinokami/starlight-dot-md/issues"
 	},
 	"exports": {
-		".": "./dist/index.mjs"
+		".": "./dist/index.mjs",
+		"./slug.md": "./dist/slug.md.mjs"
 	},
 	"main": "./dist/index.mjs",
 	"module": "./dist/index.mjs",

@@ -1,1 +1,1 @@
-packages/astro-dot-md/README.md
+packages/starlight-dot-md/README.md
