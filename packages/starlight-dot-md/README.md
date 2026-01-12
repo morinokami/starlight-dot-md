@@ -27,3 +27,15 @@ export default defineConfig({
 After build, access any page's source by appending `.md` to its URL (e.g., `/guides/example.md`).
 
 > **Note**: `.mdx` files are also served as `.md`.
+
+## Options
+
+### `excludePatterns`
+
+An array of glob patterns to exclude pages from being served as `.md` files.
+
+```js
+starlightDotMd({
+  excludePatterns: ["private/**", "**/draft-*"],
+});
+```
