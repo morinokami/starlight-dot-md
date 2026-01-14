@@ -26,7 +26,7 @@ export default defineConfig({
 
 After build, access any page's source by appending `.md` to its URL (e.g., `/guides/example.md`).
 
-> **Note**: By default, `.mdx` files are also served as `.md`. Use the `preserveExtension` option to keep the original extension.
+> **Note**: By default, both `.md` and `.mdx` files are served with the `.md` extension. Use the `preserveExtension` option to keep the original extension.
 
 ## Options
 
