@@ -39,3 +39,22 @@ starlightDotMd({
   excludePatterns: ["private/**", "**/draft-*"],
 });
 ```
+
+### `includePatterns`
+
+An array of glob patterns to include pages for being served as `.md` files. When specified, only pages matching these patterns will be served.
+
+```js
+starlightDotMd({
+  includePatterns: ["guides/**"],
+});
+```
+
+You can use both options together. Pages must match `includePatterns` (if specified) and not match `excludePatterns`.
+
+```js
+starlightDotMd({
+  includePatterns: ["guides/**"],
+  excludePatterns: ["guides/internal/**"],
+});
+```
