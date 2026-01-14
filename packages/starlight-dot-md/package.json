@@ -23,7 +23,8 @@
 	},
 	"exports": {
 		".": "./dist/index.mjs",
-		"./slug.md": "./dist/slug.md.mjs"
+		"./slug.md": "./dist/slug.md.mjs",
+		"./slug.mdx": "./dist/slug.mdx.mjs"
 	},
 	"main": "./dist/index.mjs",
 	"module": "./dist/index.mjs",

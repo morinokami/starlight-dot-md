@@ -26,7 +26,7 @@ export default defineConfig({
 
 After build, access any page's source by appending `.md` to its URL (e.g., `/guides/example.md`).
 
-> **Note**: `.mdx` files are also served as `.md`.
+> **Note**: By default, both `.md` and `.mdx` files are served with the `.md` extension. Use the `preserveExtension` option to keep the original extension.
 
 ## Options
 
@@ -58,3 +58,17 @@ starlightDotMd({
   excludePatterns: ["guides/internal/**"],
 });
 ```
+
+### `preserveExtension`
+
+When set to `true`, `.mdx` files are served with their original `.mdx` extension instead of being normalized to `.md`.
+
+```js
+starlightDotMd({
+  preserveExtension: true,
+});
+```
+
+With this option enabled:
+- `.md` files are served at `.md` URLs (e.g., `/guides/example.md`)
+- `.mdx` files are served at `.mdx` URLs (e.g., `/index.mdx`)

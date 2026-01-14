@@ -45,19 +45,21 @@ pnpm playground preview # Preview production build
 
 The integration consists of the following source files:
 
-- **`src/index.ts`** - Astro integration entry point that uses `injectRoute` to register the markdown endpoint and configures the Vite virtual module
-- **`src/slug.md.ts`** - Static/dynamic endpoint that serves raw markdown content from Starlight's `docs` collection
+- **`src/index.ts`** - Astro integration entry point that uses `injectRoute` to register the markdown endpoints and configures the Vite virtual modules
+- **`src/slug.md.ts`** - Static/dynamic endpoint that serves `.md` content from Starlight's `docs` collection
+- **`src/slug.mdx.ts`** - Static/dynamic endpoint that serves `.mdx` content (only used when `preserveExtension: true`)
 - **`src/types.ts`** - Type definitions for options and context
-- **`src/env.d.ts`** - Type declarations for the virtual module
+- **`src/env.d.ts`** - Type declarations for the virtual modules
 
 ### How It Works
 
-1. The integration injects a route pattern `/[...slug].md` via `astro:config:setup`
-2. Options are passed to the endpoint via a Vite virtual module (`virtual:starlight-dot-md/context`)
+1. The integration injects a route pattern `/[...slug].md` via `astro:config:setup` (and `/[...slug].mdx` when `preserveExtension: true`)
+2. Options and file metadata are passed to the endpoint via Vite virtual modules (`virtual:starlight-dot-md/context` and `virtual:starlight-dot-md/files`)
 3. The endpoint uses `getCollection("docs")` for SSG route generation (`getStaticPaths`)
 4. The endpoint uses `getEntry("docs", slug)` to fetch content on each request (`GET`)
 5. Pages are filtered using `includePatterns` (whitelist) and `excludePatterns` (blacklist) with glob pattern matching
-6. Returns raw markdown with `Content-Type: text/markdown; charset=utf-8`
+6. When `preserveExtension: true`, `.md` and `.mdx` files are served separately at their respective extensions
+7. Returns raw markdown with `Content-Type: text/markdown; charset=utf-8`
 
 ### SSG/SSR Support
 
