@@ -35,7 +35,11 @@
 		"build": "tsdown",
 		"typecheck": "tsc --noEmit"
 	},
+	"dependencies": {
+		"picomatch": "catalog:"
+	},
 	"devDependencies": {
+		"@types/picomatch": "catalog:",
 		"astro": "catalog:",
 		"tsdown": "catalog:",
 		"typescript": "catalog:"

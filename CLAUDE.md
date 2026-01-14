@@ -43,17 +43,21 @@ pnpm playground preview # Preview production build
 
 ## Architecture
 
-The integration consists of two main files:
+The integration consists of the following source files:
 
-- **`src/index.ts`** - Astro integration entry point that uses `injectRoute` to register the markdown endpoint
+- **`src/index.ts`** - Astro integration entry point that uses `injectRoute` to register the markdown endpoint and configures the Vite virtual module
 - **`src/slug.md.ts`** - Static/dynamic endpoint that serves raw markdown content from Starlight's `docs` collection
+- **`src/types.ts`** - Type definitions for options and context
+- **`src/env.d.ts`** - Type declarations for the virtual module
 
 ### How It Works
 
 1. The integration injects a route pattern `/[...slug].md` via `astro:config:setup`
-2. The endpoint uses `getCollection("docs")` for SSG route generation (`getStaticPaths`)
-3. The endpoint uses `getEntry("docs", slug)` to fetch content on each request (`GET`)
-4. Returns raw markdown with `Content-Type: text/markdown; charset=utf-8`
+2. Options are passed to the endpoint via a Vite virtual module (`virtual:starlight-dot-md/context`)
+3. The endpoint uses `getCollection("docs")` for SSG route generation (`getStaticPaths`)
+4. The endpoint uses `getEntry("docs", slug)` to fetch content on each request (`GET`)
+5. Pages matching `excludePatterns` are filtered out using glob pattern matching
+6. Returns raw markdown with `Content-Type: text/markdown; charset=utf-8`
 
 ### SSG/SSR Support
 
@@ -77,4 +81,4 @@ The integration consists of two main files:
 ## Integration Hook Points
 
 The Astro integration uses the following hook:
-- `astro:config:setup` - Inject the `/[...slug].md` route via `injectRoute`
+- `astro:config:setup` - Inject the `/[...slug].md` route via `injectRoute` and register the Vite virtual module plugin via `updateConfig`
