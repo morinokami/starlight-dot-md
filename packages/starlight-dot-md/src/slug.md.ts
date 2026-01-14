@@ -11,11 +11,19 @@ function isExcluded(slug: string): boolean {
 	return picomatch.isMatch(slug, context.excludePatterns);
 }
 
+function isIncluded(slug: string): boolean {
+	if (!context.includePatterns || context.includePatterns.length === 0) {
+		return true;
+	}
+
+	return picomatch.isMatch(slug, context.includePatterns);
+}
+
 export const getStaticPaths: GetStaticPaths = async () => {
 	const docs = await getCollection("docs");
 
 	return docs
-		.filter((entry) => !isExcluded(entry.id))
+		.filter((entry) => isIncluded(entry.id) && !isExcluded(entry.id))
 		.map((entry) => ({
 			params: { slug: entry.id },
 		}));
@@ -24,7 +32,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const GET: APIRoute = async ({ params }) => {
 	const slug = params.slug;
 
-	if (!slug || isExcluded(slug)) {
+	if (!slug || !isIncluded(slug) || isExcluded(slug)) {
 		return new Response("Not found", { status: 404 });
 	}
 

@@ -56,7 +56,7 @@ The integration consists of the following source files:
 2. Options are passed to the endpoint via a Vite virtual module (`virtual:starlight-dot-md/context`)
 3. The endpoint uses `getCollection("docs")` for SSG route generation (`getStaticPaths`)
 4. The endpoint uses `getEntry("docs", slug)` to fetch content on each request (`GET`)
-5. Pages matching `excludePatterns` are filtered out using glob pattern matching
+5. Pages are filtered using `includePatterns` (whitelist) and `excludePatterns` (blacklist) with glob pattern matching
 6. Returns raw markdown with `Content-Type: text/markdown; charset=utf-8`
 
 ### SSG/SSR Support

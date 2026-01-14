@@ -37,6 +37,7 @@ export default function starlightDotMd(
 
 				const context: StarlightDotMdContext = {
 					excludePatterns: options.excludePatterns ?? [],
+					includePatterns: options.includePatterns ?? [],
 				};
 
 				updateConfig({
