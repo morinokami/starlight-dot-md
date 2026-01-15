@@ -1,6 +1,6 @@
 packages:
   - packages/*
-  - playground
+  - docs
 
 catalog:
   "@astrojs/starlight": 0.37.1
