@@ -1,0 +1,122 @@
+---
+title: Getting Started
+description: Get started with starlight-dot-md.
+---
+
+import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
+
+## Installation
+
+<Steps>
+
+1. Run the following command to add `starlight-dot-md` to your Starlight project:
+
+   <Tabs syncKey="package-manager">
+     <TabItem label="npm">
+       ```bash
+       npx astro add starlight-dot-md
+       ```
+     </TabItem>
+     <TabItem label="pnpm">
+       ```bash
+       pnpm astro add starlight-dot-md
+       ```
+     </TabItem>
+     <TabItem label="yarn">
+       ```bash
+       yarn astro add starlight-dot-md
+       ```
+     </TabItem>
+   </Tabs>
+
+2. Start the development server:
+
+   <Tabs syncKey="package-manager">
+     <TabItem label="npm">
+       ```bash
+       npm run dev
+       ```
+     </TabItem>
+     <TabItem label="pnpm">
+       ```bash
+       pnpm run dev
+       ```
+     </TabItem>
+     <TabItem label="yarn">
+       ```bash
+       yarn run dev
+       ```
+     </TabItem>
+   </Tabs>
+
+3. Access any page's source by appending `.md` to its URL (e.g., `/guides/example.md`).
+
+</Steps>
+
+<Aside>
+By default, both `.md` and `.mdx` files are served with the `.md` extension. Use the [`preserveExtension`](/configuration/#preserveextension) option to keep the original extension.
+</Aside>
+
+### Manual Instal
+
+<Steps>
+
+1. Install the `starlight-dot-md` package in your Starlight project:
+
+   <Tabs syncKey="package-manager">
+     <TabItem label="npm">
+       ```bash
+       npm install starlight-dot-md@latest
+       ```
+     </TabItem>
+     <TabItem label="pnpm">
+       ```bash
+       pnpm add starlight-dot-md
+       ```
+     </TabItem>
+     <TabItem label="yarn">
+       ```bash
+       yarn add starlight-dot-md
+       ```
+     </TabItem>
+   </Tabs>
+
+2. Add `starlightDotMd()` to your Astro config file:
+
+   ```js
+   // astro.config.mjs
+   import starlight from "@astrojs/starlight";
+   import { defineConfig } from "astro/config";
+   import starlightDotMd from "starlight-dot-md";
+   
+   export default defineConfig({
+     integrations: [
+       starlight({ ... }),
+       starlightDotMd(),
+     ],
+   });
+   ```
+
+3. Start the development server:
+
+   <Tabs syncKey="package-manager">
+     <TabItem label="npm">
+       ```bash
+       npm run dev
+       ```
+     </TabItem>
+     <TabItem label="pnpm">
+       ```bash
+       pnpm run dev
+       ```
+     </TabItem>
+     <TabItem label="yarn">
+       ```bash
+       yarn run dev
+       ```
+     </TabItem>
+   </Tabs>
+
+4. Access any page's source by appending `.md` to its URL (e.g., `/guides/example.md`).
+
+</Steps>
