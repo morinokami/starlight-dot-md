@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"dot-md": "pnpm --filter \"starlight-dot-md\"",
-		"playground": "pnpm --filter \"playground\"",
+		"docs": "pnpm --filter \"docs\"",
 		"lint": "biome check --write"
 	},
 	"devDependencies": {

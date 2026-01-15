@@ -1,6 +1,6 @@
 {
 	"private": true,
-	"name": "playground",
+	"name": "docs",
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {

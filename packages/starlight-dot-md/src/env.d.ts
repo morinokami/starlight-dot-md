@@ -1,4 +1,4 @@
-/// <reference types="../../../playground/.astro/types.d.ts" />
+/// <reference types="../../../docs/.astro/types.d.ts" />
 
 declare module "virtual:starlight-dot-md/context" {
 	export const context: import("./types").StarlightDotMdContext;
