@@ -3,6 +3,7 @@
 // import node from "@astrojs/node";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
+import astroOg from "astro-og";
 import starlightDotMd from "starlight-dot-md";
 
 // https://astro.build/config
@@ -26,5 +27,6 @@ export default defineConfig({
 		starlightDotMd({
 			excludePatterns: ["reference/**"],
 		}),
+		astroOg(),
 	],
 });

@@ -18,6 +18,9 @@ catalogs:
     astro:
       specifier: 5.16.6
       version: 5.16.6
+    astro-og:
+      specifier: 0.3.2
+      version: 0.3.2
     picomatch:
       specifier: 4.0.3
       version: 4.0.3
@@ -56,6 +59,9 @@ importers:
       astro:
         specifier: 'catalog:'
         version: 5.16.6(jiti@2.4.2)(rollup@4.45.1)(typescript@5.9.3)
+      astro-og:
+        specifier: 'catalog:'
+        version: 0.3.2(astro@5.16.6(jiti@2.4.2)(rollup@4.45.1)(typescript@5.9.3))
       sharp:
         specifier: 'catalog:'
         version: 0.34.5
@@ -980,6 +986,11 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0 || ^6.0.0-beta
 
+  astro-og@0.3.2:
+    resolution: {integrity: sha512-87soXn7bSVzcY+9YyG5xQt/F4J4hsZ6ZKXAfRzBwqiQ2FF+esRLpQU62v6IKQHnlvzkQvmbUmeAKaEP0W1SM2g==}
+    peerDependencies:
+      astro: '>=5.0.0'
+
   astro@5.16.6:
     resolution: {integrity: sha512-6mF/YrvwwRxLTu+aMEa5pwzKUNl5ZetWbTyZCs9Um0F12HUmxUiF5UHiZPy4rifzU3gtpM3xP2DfdmkNX9eZRg==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
@@ -1842,6 +1853,9 @@ packages:
   postcss@8.5.6:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
+
+  preact@10.28.2:
+    resolution: {integrity: sha512-lbteaWGzGHdlIuiJ0l2Jq454m6kcpI1zNje6d8MlGAFlYvP2GO4ibnat7P74Esfz4sPTdM6UxtTwh/d3pwM9JA==}
 
   prismjs@1.30.0:
     resolution: {integrity: sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw==}
@@ -3261,6 +3275,11 @@ snapshots:
       astro: 5.16.6(jiti@2.4.2)(rollup@4.45.1)(typescript@5.9.3)
       rehype-expressive-code: 0.41.6
 
+  astro-og@0.3.2(astro@5.16.6(jiti@2.4.2)(rollup@4.45.1)(typescript@5.9.3)):
+    dependencies:
+      astro: 5.16.6(jiti@2.4.2)(rollup@4.45.1)(typescript@5.9.3)
+      preact: 10.28.2
+
   astro@5.16.6(jiti@2.4.2)(rollup@4.45.1)(typescript@5.9.3):
     dependencies:
       '@astrojs/compiler': 2.13.0
@@ -4607,6 +4626,8 @@ snapshots:
       nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  preact@10.28.2: {}
 
   prismjs@1.30.0: {}
 
