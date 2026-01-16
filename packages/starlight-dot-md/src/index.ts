@@ -4,7 +4,11 @@ import type { AstroIntegration } from "astro";
 
 import type { StarlightDotMdContext, StarlightDotMdOptions } from "./types";
 
-function findMdxFiles(dir: string, baseDir: string): string[] {
+function findFilesByExtension(
+	dir: string,
+	baseDir: string,
+	extension: string,
+): string[] {
 	const results: string[] = [];
 	try {
 		const entries = readdirSync(dir);
@@ -12,10 +16,10 @@ function findMdxFiles(dir: string, baseDir: string): string[] {
 			const fullPath = join(dir, entry);
 			const stat = statSync(fullPath);
 			if (stat.isDirectory()) {
-				results.push(...findMdxFiles(fullPath, baseDir));
-			} else if (entry.endsWith(".mdx")) {
+				results.push(...findFilesByExtension(fullPath, baseDir, extension));
+			} else if (entry.endsWith(extension)) {
 				const relativePath = relative(baseDir, fullPath);
-				results.push(relativePath.replace(".mdx", ""));
+				results.push(relativePath.replace(extension, ""));
 			}
 		}
 	} catch {
@@ -54,11 +58,12 @@ function vitePluginStarlightDotMdContext(
 			}
 			if (id === resolvedFilesModuleId) {
 				if (!preserveExtension) {
-					return `export const mdxSlugs = new Set();`;
+					return `export const mdocSlugs = new Set();\nexport const mdxSlugs = new Set();`;
 				}
 				const docsDir = join(root, "src/content/docs");
-				const mdxSlugs = findMdxFiles(docsDir, docsDir);
-				return `export const mdxSlugs = new Set(${JSON.stringify(mdxSlugs)});`;
+				const mdxSlugs = findFilesByExtension(docsDir, docsDir, ".mdx");
+				const mdocSlugs = findFilesByExtension(docsDir, docsDir, ".mdoc");
+				return `export const mdocSlugs = new Set(${JSON.stringify(mdocSlugs)});\nexport const mdxSlugs = new Set(${JSON.stringify(mdxSlugs)});`;
 			}
 			return undefined;
 		},
@@ -82,6 +87,11 @@ export default function starlightDotMd(
 					injectRoute({
 						pattern: "/[...slug].mdx",
 						entrypoint: "starlight-dot-md/slug.mdx",
+						prerender: true,
+					});
+					injectRoute({
+						pattern: "/[...slug].mdoc",
+						entrypoint: "starlight-dot-md/slug.mdoc",
 						prerender: true,
 					});
 				}

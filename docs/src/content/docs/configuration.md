@@ -36,7 +36,7 @@ starlightDotMd({
 
 ### `preserveExtension`
 
-When set to `true`, `.mdx` files are served with their original `.mdx` extension instead of being normalized to `.md`.
+When set to `true`, `.mdx` and `.mdoc` files are served with their original extensions instead of being normalized to `.md`.
 
 ```js
 starlightDotMd({
@@ -46,4 +46,5 @@ starlightDotMd({
 
 With this option enabled:
 - `.md` files are served at `.md` URLs (e.g., `/guides/example.md`)
+- `.mdoc` files are served at `.mdoc` URLs (e.g., `/markdoc.mdoc`)
 - `.mdx` files are served at `.mdx` URLs (e.g., `/index.mdx`)

@@ -1,20 +1,10 @@
 import { getCollection, getEntry } from "astro:content";
-import { context } from "virtual:starlight-dot-md/context";
 import type { APIRoute, GetStaticPaths } from "astro";
 
-import { isExcluded, isIncluded, isMdoc, isMdx } from "./utils";
+import { isExcluded, isIncluded, isMdoc } from "./utils";
 
 function shouldServe(slug: string): boolean {
-	if (!isIncluded(slug) || isExcluded(slug)) {
-		return false;
-	}
-
-	// When preserveExtension is true, only serve .md files from this endpoint
-	if (context.preserveExtension && (isMdx(slug) || isMdoc(slug))) {
-		return false;
-	}
-
-	return true;
+	return isMdoc(slug) && isIncluded(slug) && !isExcluded(slug);
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

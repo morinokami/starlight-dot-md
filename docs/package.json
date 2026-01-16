@@ -11,8 +11,10 @@
 		"astro": "astro"
 	},
 	"dependencies": {
+		"@astrojs/markdoc": "catalog:",
 		"@astrojs/node": "9.5.1",
 		"@astrojs/starlight": "catalog:",
+		"@astrojs/starlight-markdoc": "catalog:",
 		"astro": "catalog:",
 		"astro-og": "catalog:",
 		"starlight-dot-md": "workspace:*",

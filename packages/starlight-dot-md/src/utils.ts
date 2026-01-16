@@ -1,9 +1,13 @@
 import { context } from "virtual:starlight-dot-md/context";
-import { mdxSlugs } from "virtual:starlight-dot-md/files";
+import { mdocSlugs, mdxSlugs } from "virtual:starlight-dot-md/files";
 import picomatch from "picomatch";
 
 export function isMdx(slug: string): boolean {
 	return mdxSlugs.has(slug);
+}
+
+export function isMdoc(slug: string): boolean {
+	return mdocSlugs.has(slug);
 }
 
 export function isExcluded(slug: string): boolean {
