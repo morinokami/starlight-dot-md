@@ -1,6 +1,7 @@
 // @ts-check
 
 // import node from "@astrojs/node";
+import markdoc from "@astrojs/markdoc";
 import starlight from "@astrojs/starlight";
 import { defineConfig } from "astro/config";
 import astroOg from "astro-og";
@@ -28,5 +29,6 @@ export default defineConfig({
 			excludePatterns: ["reference/**"],
 		}),
 		astroOg(),
+		markdoc(),
 	],
 });
