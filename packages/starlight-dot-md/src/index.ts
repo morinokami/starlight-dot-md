@@ -75,12 +75,14 @@ export default function starlightDotMd(
 				injectRoute({
 					pattern: "/[...slug].md",
 					entrypoint: "starlight-dot-md/slug.md",
+					prerender: true,
 				});
 
 				if (options.preserveExtension) {
 					injectRoute({
 						pattern: "/[...slug].mdx",
 						entrypoint: "starlight-dot-md/slug.mdx",
+						prerender: true,
 					});
 				}
 

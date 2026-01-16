@@ -6,4 +6,9 @@ export default defineConfig({
 	dts: true,
 	clean: true,
 	minify: true,
+	external: [
+		"astro:content",
+		"virtual:starlight-dot-md/context",
+		"virtual:starlight-dot-md/files",
+	],
 });
