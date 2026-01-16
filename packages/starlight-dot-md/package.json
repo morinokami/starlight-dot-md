@@ -24,7 +24,8 @@
 	"exports": {
 		".": "./dist/index.mjs",
 		"./slug.md": "./dist/slug.md.mjs",
-		"./slug.mdx": "./dist/slug.mdx.mjs"
+		"./slug.mdx": "./dist/slug.mdx.mjs",
+		"./slug.mdoc": "./dist/slug.mdoc.mjs"
 	},
 	"main": "./dist/index.mjs",
 	"module": "./dist/index.mjs",

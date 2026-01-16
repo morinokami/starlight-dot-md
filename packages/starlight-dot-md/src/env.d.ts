@@ -6,4 +6,5 @@ declare module "virtual:starlight-dot-md/context" {
 
 declare module "virtual:starlight-dot-md/files" {
 	export const mdxSlugs: Set<string>;
+	export const mdocSlugs: Set<string>;
 }

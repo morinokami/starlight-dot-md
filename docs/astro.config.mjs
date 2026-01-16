@@ -27,6 +27,7 @@ export default defineConfig({
 		}),
 		starlightDotMd({
 			excludePatterns: ["reference/**"],
+			preserveExtension: true,
 		}),
 		astroOg(),
 		markdoc(),
