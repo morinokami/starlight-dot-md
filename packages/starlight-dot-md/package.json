@@ -34,8 +34,7 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsdown",
-		"typecheck": "tsc --noEmit"
+		"build": "tsdown"
 	},
 	"dependencies": {
 		"picomatch": "4.0.3"
