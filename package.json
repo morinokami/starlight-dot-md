@@ -16,6 +16,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "catalog:",
+		"@changesets/changelog-github": "catalog:",
+		"@changesets/cli": "catalog:",
 		"pkg-pr-new": "catalog:"
 	}
 }
