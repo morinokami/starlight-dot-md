@@ -41,6 +41,7 @@
 		"picomatch": "catalog:"
 	},
 	"devDependencies": {
+		"@astrojs/starlight": "catalog:",
 		"@types/picomatch": "catalog:",
 		"astro": "catalog:",
 		"tsdown": "catalog:",
