@@ -1,7 +1,7 @@
 {
 	"name": "starlight-dot-md",
 	"version": "0.1.1",
-	"description": "A Starlight integration that exposes raw markdown files at `.md` URLs.",
+	"description": "A Starlight plugin that exposes raw markdown files at `.md` URLs.",
 	"keywords": [
 		"astro",
 		"withastro",

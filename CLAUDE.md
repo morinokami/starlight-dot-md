@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Starlight integration that exposes raw markdown files at `.md` URLs. Users can access the raw markdown source by appending `.md` to any documentation page URL.
+This is a Starlight plugin that exposes raw markdown files at `.md` URLs. Users can access the raw markdown source by appending `.md` to any documentation page URL.
 
 ## Repository Structure
 
 This is a pnpm monorepo with two main workspaces:
-- `packages/starlight-dot-md/` - The main Astro integration package
+- `packages/starlight-dot-md/` - The main Astro plugin package
 - `docs/` - Documentation site and testing environment using Astro Starlight
 
 ## Development Commands
@@ -43,9 +43,9 @@ pnpm web preview # Preview production build
 
 ## Architecture
 
-The integration consists of the following source files:
+The plugin consists of the following source files:
 
-- **`src/index.ts`** - Astro integration entry point that uses `injectRoute` to register the markdown endpoints and configures the Vite virtual modules
+- **`src/index.ts`** - Astro plugin entry point that uses `injectRoute` to register the markdown endpoints and configures the Vite virtual modules
 - **`src/slug.md.ts`** - Static/dynamic endpoint that serves `.md` content from Starlight's `docs` collection
 - **`src/slug.mdoc.ts`** - Static/dynamic endpoint that serves `.mdoc` (Markdoc) content (only used when `preserveExtension: true`)
 - **`src/slug.mdx.ts`** - Static/dynamic endpoint that serves `.mdx` content (only used when `preserveExtension: true`)
@@ -55,7 +55,7 @@ The integration consists of the following source files:
 
 ### How It Works
 
-1. The integration injects a route pattern `/[...slug].md` via `astro:config:setup` (and `/[...slug].mdoc`, `/[...slug].mdx` when `preserveExtension: true`)
+1. The plugin injects a route pattern `/[...slug].md` via `astro:config:setup` (and `/[...slug].mdoc`, `/[...slug].mdx` when `preserveExtension: true`)
 2. Options and file metadata are passed to the endpoint via Vite virtual modules (`virtual:starlight-dot-md/context` and `virtual:starlight-dot-md/files`)
 3. The endpoint uses `getCollection("docs")` for SSG route generation (`getStaticPaths`)
 4. The endpoint uses `getEntry("docs", slug)` to fetch content on each request (`GET`)
@@ -79,10 +79,10 @@ The integration consists of the following source files:
 
 1. Make changes in `packages/starlight-dot-md/src/`
 2. Run `pnpm dot-md build` to compile the package
-3. Test changes with `pnpm web dev` (integration is already configured)
+3. Test changes with `pnpm web dev` (plugin is already configured)
 4. Run `pnpm biome check .` before committing
 
-## Integration Hook Points
+## Plugin Hook Points
 
-The Astro integration uses the following hook:
+The Astro plugin uses the following hook:
 - `astro:config:setup` - Inject the `/[...slug].md` route (and `/[...slug].mdoc`, `/[...slug].mdx` when `preserveExtension: true`) via `injectRoute` and register the Vite virtual module plugin via `updateConfig`
