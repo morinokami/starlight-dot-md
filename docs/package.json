@@ -17,7 +17,7 @@
 		"@astrojs/starlight-markdoc": "0.5.1",
 		"astro": "5.16.11",
 		"astro-og": "0.3.2",
-		"starlight-dot-md": "0.1.1*",
+		"starlight-dot-md": "workspace:*",
 		"sharp": "0.34.5"
 	}
 }
