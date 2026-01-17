@@ -1,7 +1,7 @@
 {
 	"name": "starlight-dot-md",
 	"version": "0.1.1",
-	"description": "A Starlight integration that exposes raw markdown files at `.md` URLs.",
+	"description": "A Starlight plugin that exposes raw markdown files at `.md` URLs.",
 	"keywords": [
 		"astro",
 		"withastro",
@@ -34,17 +34,18 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsdown",
-		"typecheck": "tsc --noEmit"
+		"build": "tsdown"
 	},
 	"dependencies": {
-		"picomatch": "catalog:"
+		"picomatch": "4.0.3"
 	},
 	"devDependencies": {
-		"@types/picomatch": "catalog:",
-		"astro": "catalog:",
-		"tsdown": "catalog:",
-		"typescript": "catalog:"
+		"@astrojs/starlight": "0.37.3",
+		"@types/node": "25.0.9",
+		"@types/picomatch": "4.0.2",
+		"astro": "5.16.11",
+		"tsdown": "0.18.3",
+		"typescript": "5.9.3"
 	},
 	"peerDependencies": {
 		"astro": ">=5.0.0"

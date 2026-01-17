@@ -13,6 +13,7 @@ export default defineConfig({
 	// adapter: node({
 	// 	mode: "standalone",
 	// }),
+	trailingSlash: "never",
 	integrations: [
 		starlight({
 			title: "starlight-dot-md",
@@ -24,9 +25,7 @@ export default defineConfig({
 				},
 			],
 			sidebar: ["getting-started", "configuration"],
-		}),
-		starlightDotMd({
-			excludePatterns: ["reference/**"],
+			plugins: [starlightDotMd()],
 		}),
 		astroOg(),
 		markdoc(),

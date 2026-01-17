@@ -1,6 +1,6 @@
 import { readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
-import type { AstroIntegration } from "astro";
+import type { StarlightPlugin } from "@astrojs/starlight/types";
 
 import type { StarlightDotMdContext, StarlightDotMdOptions } from "./types";
 
@@ -72,44 +72,51 @@ function vitePluginStarlightDotMdContext(
 
 export default function starlightDotMd(
 	options: StarlightDotMdOptions = {},
-): AstroIntegration {
+): StarlightPlugin {
 	return {
 		name: "starlight-dot-md",
 		hooks: {
-			"astro:config:setup": ({ injectRoute, updateConfig }) => {
-				injectRoute({
-					pattern: "/[...slug].md",
-					entrypoint: "starlight-dot-md/slug.md",
-					prerender: true,
-				});
+			setup({ addIntegration }) {
+				addIntegration({
+					name: "starlight-dot-md",
+					hooks: {
+						"astro:config:setup": ({ injectRoute, updateConfig }) => {
+							injectRoute({
+								pattern: "/[...slug].md",
+								entrypoint: "starlight-dot-md/slug.md",
+								prerender: true,
+							});
 
-				if (options.preserveExtension) {
-					injectRoute({
-						pattern: "/[...slug].mdx",
-						entrypoint: "starlight-dot-md/slug.mdx",
-						prerender: true,
-					});
-					injectRoute({
-						pattern: "/[...slug].mdoc",
-						entrypoint: "starlight-dot-md/slug.mdoc",
-						prerender: true,
-					});
-				}
+							if (options.preserveExtension) {
+								injectRoute({
+									pattern: "/[...slug].mdx",
+									entrypoint: "starlight-dot-md/slug.mdx",
+									prerender: true,
+								});
+								injectRoute({
+									pattern: "/[...slug].mdoc",
+									entrypoint: "starlight-dot-md/slug.mdoc",
+									prerender: true,
+								});
+							}
 
-				const context: StarlightDotMdContext = {
-					excludePatterns: options.excludePatterns ?? [],
-					includePatterns: options.includePatterns ?? [],
-					preserveExtension: options.preserveExtension ?? false,
-				};
+							const context: StarlightDotMdContext = {
+								excludePatterns: options.excludePatterns ?? [],
+								includePatterns: options.includePatterns ?? [],
+								preserveExtension: options.preserveExtension ?? false,
+							};
 
-				updateConfig({
-					vite: {
-						plugins: [
-							vitePluginStarlightDotMdContext(
-								context,
-								options.preserveExtension ?? false,
-							),
-						],
+							updateConfig({
+								vite: {
+									plugins: [
+										vitePluginStarlightDotMdContext(
+											context,
+											options.preserveExtension ?? false,
+										),
+									],
+								},
+							});
+						},
 					},
 				});
 			},

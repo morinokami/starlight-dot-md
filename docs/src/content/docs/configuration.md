@@ -45,6 +45,7 @@ starlightDotMd({
 ```
 
 With this option enabled:
+
 - `.md` files are served at `.md` URLs (e.g., `/guides/example.md`)
 - `.mdoc` files are served at `.mdoc` URLs (e.g., `/markdoc.mdoc`)
 - `.mdx` files are served at `.mdx` URLs (e.g., `/index.mdx`)

@@ -10,7 +10,6 @@ export default defineConfig({
 	format: ["esm"],
 	dts: true,
 	clean: true,
-	minify: true,
 	external: [
 		"astro:content",
 		"virtual:starlight-dot-md/context",
