@@ -38,14 +38,14 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"picomatch": "catalog:"
+		"picomatch": "4.0.3"
 	},
 	"devDependencies": {
-		"@astrojs/starlight": "catalog:",
-		"@types/picomatch": "catalog:",
-		"astro": "catalog:",
-		"tsdown": "catalog:",
-		"typescript": "catalog:"
+		"@astrojs/starlight": "0.37.3",
+		"@types/picomatch": "4.0.2",
+		"astro": "5.16.11",
+		"tsdown": "0.18.3",
+		"typescript": "5.9.3"
 	},
 	"peerDependencies": {
 		"astro": ">=5.0.0"

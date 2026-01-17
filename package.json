@@ -15,9 +15,9 @@
 		"lint": "biome check --write"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "catalog:",
-		"@changesets/changelog-github": "catalog:",
-		"@changesets/cli": "catalog:",
-		"pkg-pr-new": "catalog:"
+		"@biomejs/biome": "2.3.11",
+		"@changesets/changelog-github": "0.5.2",
+		"@changesets/cli": "2.29.8",
+		"pkg-pr-new": "0.0.62"
 	}
 }

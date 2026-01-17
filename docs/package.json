@@ -11,13 +11,13 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/markdoc": "catalog:",
-		"@astrojs/node": "9.5.1",
-		"@astrojs/starlight": "catalog:",
-		"@astrojs/starlight-markdoc": "catalog:",
-		"astro": "catalog:",
-		"astro-og": "catalog:",
-		"starlight-dot-md": "workspace:*",
-		"sharp": "catalog:"
+		"@astrojs/markdoc": "0.15.10",
+		"@astrojs/node": "9.5.2",
+		"@astrojs/starlight": "0.37.3",
+		"@astrojs/starlight-markdoc": "0.5.1",
+		"astro": "5.16.11",
+		"astro-og": "0.3.2",
+		"starlight-dot-md": "0.1.1*",
+		"sharp": "0.34.5"
 	}
 }
