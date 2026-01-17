@@ -72,5 +72,11 @@ import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
 </Steps>
 
 <Aside>
-By default, both `.md` and `.mdx` files are served with the `.md` extension. Use the [`preserveExtension`](/configuration/#preserveextension) option to keep the original extension.
+By default, both `.md` and `.mdx` files are served with the `.md` extension.
+Use the [`preserveExtension`](/configuration/#preserveextension) option to keep the original extension.
+</Aside>
+
+<Aside type="caution">
+This plugin requires [`trailingSlash`](https://docs.astro.build/en/reference/configuration-reference/#trailingslash) to be set to `"never"` or `"ignore"` (default) in your Astro config.
+It is not compatible with `trailingSlash: "always"`.
 </Aside>

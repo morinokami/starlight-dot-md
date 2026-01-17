@@ -25,11 +25,7 @@ export default defineConfig({
 				},
 			],
 			sidebar: ["getting-started", "configuration"],
-			plugins: [
-				starlightDotMd({
-					excludePatterns: ["reference/**"],
-				}),
-			],
+			plugins: [starlightDotMd()],
 		}),
 		astroOg(),
 		markdoc(),
