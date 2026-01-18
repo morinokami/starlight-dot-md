@@ -1,11 +1,11 @@
 ---
 title: starlight-dot-md
 description: Serve your docs as raw markdown files for AI agents.
-template: splash
+head:
+  - tag: title
+    content: starlight-dot-md
 hero:
   tagline: A Starlight plugin that serves your docs (.md, .mdx, .mdoc) as raw markdown for AI agents.
-  image:
-    file: ../../assets/houston.webp
   actions:
     - text: Get Started
       link: /getting-started
@@ -14,13 +14,15 @@ hero:
       link: /index.md
       icon: document
       variant: minimal
+tableOfContents: false
+next: false
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ## Next steps
 
-<CardGrid stagger>
+<CardGrid>
 	<Card title="Install starlight-dot-md" icon="download">
 		Add `starlight-dot-md` to your Starlight project.
 	</Card>
