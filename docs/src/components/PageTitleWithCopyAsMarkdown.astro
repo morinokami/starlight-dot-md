@@ -1,0 +1,67 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+import Default from "@astrojs/starlight/components/PageTitle.astro";
+
+const { body } = Astro.locals.starlightRoute.entry;
+---
+
+<Default><slot /></Default>
+
+{body ? (
+  <button
+    id="copy-markdown-btn"
+    type="button"
+    data-content={body}
+  >
+    <Icon name="document" />
+    <span class="btn-text">Copy as Markdown</span>
+  </button>
+
+  <style is:global>
+    #copy-markdown-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 1rem;
+      background: transparent;
+      border: 1px solid var(--sl-color-gray-5);
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      transition: background-color 0.2s ease;
+    }
+
+    #copy-markdown-btn:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] #copy-markdown-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+
+  <script>
+    const button = document.getElementById("copy-markdown-btn") as HTMLButtonElement;
+    const textEl = button.querySelector(".btn-text") as HTMLSpanElement;
+
+    button.addEventListener("click", async () => {
+      const content = button.dataset.content;
+      if (!content) return;
+
+      try {
+        await navigator.clipboard.writeText(content);
+
+        // Update button text
+        const originalText = textEl.textContent;
+        textEl.textContent = "Copied!";
+
+        // Reset after 1 second
+        setTimeout(() => {
+          textEl.textContent = originalText;
+        }, 1000);
+      } catch (err) {
+        console.error("Failed to copy");
+      }
+    });
+  </script>
+) : null}

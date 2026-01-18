@@ -17,6 +17,9 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "starlight-dot-md",
+			components: {
+				PageTitle: "./src/components/PageTitleWithCopyAsMarkdown.astro",
+			},
 			social: [
 				{
 					icon: "github",
