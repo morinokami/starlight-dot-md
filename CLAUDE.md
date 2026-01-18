@@ -21,17 +21,11 @@ pnpm dot-md <command>
 
 # Run commands in the docs site
 pnpm web <command>
-
-# Code quality
-pnpm biome check .      # Run formatter, linter and import sorting
-pnpm biome lint .       # Run linter only
-pnpm biome format .     # Run formatter only
 ```
 
 ### Package Development (`packages/starlight-dot-md/`)
 ```bash
 pnpm dot-md build       # Build the package using tsdown
-pnpm dot-md typecheck   # Run TypeScript type checking
 ```
 
 ### Docs Development (`docs/`)
@@ -80,7 +74,7 @@ The plugin consists of the following source files:
 1. Make changes in `packages/starlight-dot-md/src/`
 2. Run `pnpm dot-md build` to compile the package
 3. Test changes with `pnpm web dev` (plugin is already configured)
-4. Run `pnpm biome check .` before committing
+4. Run `pnpm dot-md lint` before committing
 
 ## Plugin Hook Points
 

@@ -15,7 +15,7 @@
 	"type": "module",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/morinokami/starlight-dot-md.git",
+		"url": "git+https://github.com/morinokami/starlight-dot-md.git",
 		"directory": "packages/starlight-dot-md"
 	},
 	"bugs": {
@@ -34,7 +34,9 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "tsdown"
+		"build": "tsdown",
+		"lint": "biome ci",
+		"publint": "publint"
 	},
 	"dependencies": {
 		"picomatch": "4.0.3"
@@ -44,6 +46,7 @@
 		"@types/node": "25.0.9",
 		"@types/picomatch": "4.0.2",
 		"astro": "5.16.11",
+		"publint": "0.3.16",
 		"tsdown": "0.18.3",
 		"typescript": "5.9.3"
 	},

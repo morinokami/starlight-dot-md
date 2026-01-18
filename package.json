@@ -11,8 +11,7 @@
 	},
 	"scripts": {
 		"dot-md": "pnpm --filter \"starlight-dot-md\"",
-		"web": "pnpm --filter \"docs\"",
-		"lint": "biome check --write"
+		"web": "pnpm --filter \"docs\""
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.11",
