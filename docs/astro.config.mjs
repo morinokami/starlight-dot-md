@@ -38,7 +38,7 @@ export default defineConfig({
 				"getting-started",
 				"configuration",
 			],
-			plugins: [starlightDotMd({ includeFrontmatter: true })],
+			plugins: [starlightDotMd()],
 		}),
 		astroOg(),
 		markdoc(),

@@ -46,7 +46,9 @@ export function originalSlugFromOutput(outputSlug: string): string {
 	return outputSlug;
 }
 
-export function generateMarkdownContent(entry: CollectionEntry<"docs">): string {
+export function generateMarkdownContent(
+	entry: CollectionEntry<"docs">,
+): string {
 	if (!context.includeFrontmatter) {
 		return entry.body ?? "";
 	}
