@@ -3,6 +3,7 @@ import { context } from "virtual:starlight-dot-md/context";
 import type { APIRoute, GetStaticPaths } from "astro";
 
 import {
+	generateMarkdownContent,
 	isExcluded,
 	isIncluded,
 	isMdoc,
@@ -50,7 +51,7 @@ export const GET: APIRoute = async ({ params }) => {
 		return new Response("Not found", { status: 404 });
 	}
 
-	return new Response(entry.body, {
+	return new Response(generateMarkdownContent(entry), {
 		status: 200,
 		headers: {
 			"Content-Type": "text/markdown; charset=utf-8",
