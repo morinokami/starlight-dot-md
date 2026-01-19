@@ -1,6 +1,8 @@
+import type { CollectionEntry } from "astro:content";
 import { context } from "virtual:starlight-dot-md/context";
 import { mdocSlugs, mdxSlugs } from "virtual:starlight-dot-md/files";
 import picomatch from "picomatch";
+import yaml from "yaml";
 
 export function isMdx(slug: string): boolean {
 	return mdxSlugs.has(slug);
@@ -42,4 +44,13 @@ export function originalSlugFromOutput(outputSlug: string): string {
 		return outputSlug.slice(0, -6);
 	}
 	return outputSlug;
+}
+
+export function generateMarkdownContent(entry: CollectionEntry<"docs">): string {
+	if (!context.includeFrontmatter) {
+		return entry.body ?? "";
+	}
+
+	const frontmatter = yaml.stringify(entry.data);
+	return `---\n${frontmatter}---\n\n${entry.body ?? ""}`;
 }

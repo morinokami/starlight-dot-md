@@ -101,6 +101,7 @@ export default function starlightDotMd(
 							}
 
 							const context: StarlightDotMdContext = {
+								includeFrontmatter: options.includeFrontmatter ?? true,
 								excludePatterns: options.excludePatterns ?? [],
 								includePatterns: options.includePatterns ?? [],
 								preserveExtension: options.preserveExtension ?? false,

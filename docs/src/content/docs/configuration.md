@@ -5,7 +5,24 @@ description: Configure starlight-dot-md.
 
 ## Options
 
+### `includeFrontmatter`
+
+**Type:** `boolean`  
+**Default:** `true`
+
+When set to `true`, the frontmatter of the page is included in the generated
+markdown content.
+
+```js
+starlightDotMd({
+  includeFrontmatter: false,
+});
+```
+
 ### `excludePatterns`
+
+**Type:** `string[]`  
+**Default:** `[]`
 
 An array of glob patterns to exclude pages from being served as `.md` files.
 
@@ -16,6 +33,9 @@ starlightDotMd({
 ```
 
 ### `includePatterns`
+
+**Type:** `string[]`  
+**Default:** `[]`
 
 An array of glob patterns to include pages for being served as `.md` files. When
 specified, only pages matching these patterns will be served.
@@ -37,6 +57,9 @@ starlightDotMd({
 ```
 
 ### `preserveExtension`
+
+**Type:** `boolean`  
+**Default:** `false`
 
 When set to `true`, `.mdx` and `.mdoc` files are served with their original
 extensions instead of being normalized to `.md`.
