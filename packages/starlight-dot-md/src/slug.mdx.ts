@@ -1,7 +1,13 @@
 import { getCollection, getEntry } from "astro:content";
 import type { APIRoute, GetStaticPaths } from "astro";
 
-import { isExcluded, isIncluded, isMdx } from "./utils";
+import {
+	isExcluded,
+	isIncluded,
+	isMdx,
+	originalSlugFromOutput,
+	transformSlugForOutput,
+} from "./utils";
 
 function shouldServe(slug: string): boolean {
 	return isMdx(slug) && isIncluded(slug) && !isExcluded(slug);
@@ -13,19 +19,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	return docs
 		.filter((entry) => shouldServe(entry.id))
 		.map((entry) => ({
-			params: { slug: entry.id },
+			params: { slug: transformSlugForOutput(entry.id) },
 		}));
 };
 
 export const GET: APIRoute = async ({ params }) => {
-	const slug = params.slug;
+	const outputSlug = params.slug;
+	if (!outputSlug) {
+		return new Response("Not found", { status: 404 });
+	}
 
-	if (!slug || !shouldServe(slug)) {
+	const slug = originalSlugFromOutput(outputSlug);
+	if (!shouldServe(slug)) {
 		return new Response("Not found", { status: 404 });
 	}
 
 	const entry = await getEntry("docs", slug);
-
 	if (!entry) {
 		return new Response("Not found", { status: 404 });
 	}

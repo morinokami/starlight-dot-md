@@ -17,7 +17,7 @@ export default defineConfig({
 	// 	mode: "standalone",
 	// }),
 	site,
-	trailingSlash: "never",
+	trailingSlash: "always",
 	integrations: [
 		starlight({
 			title: "starlight-dot-md",

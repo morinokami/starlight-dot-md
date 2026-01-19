@@ -80,7 +80,7 @@ export default function starlightDotMd(
 				addIntegration({
 					name: "starlight-dot-md",
 					hooks: {
-						"astro:config:setup": ({ injectRoute, updateConfig }) => {
+						"astro:config:setup": ({ injectRoute, updateConfig, config }) => {
 							injectRoute({
 								pattern: "/[...slug].md",
 								entrypoint: "starlight-dot-md/slug.md",
@@ -104,6 +104,7 @@ export default function starlightDotMd(
 								excludePatterns: options.excludePatterns ?? [],
 								includePatterns: options.includePatterns ?? [],
 								preserveExtension: options.preserveExtension ?? false,
+								trailingSlash: config.trailingSlash ?? "ignore",
 							};
 
 							updateConfig({

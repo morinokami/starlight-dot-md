@@ -67,7 +67,7 @@ import { Aside, Steps, Tabs, TabItem } from "@astrojs/starlight/components";
      </TabItem>
    </Tabs>
 
-4. Access any page's source by appending `.md` to its URL (e.g., `/guides/example.md`).
+4. Access any page's source by appending `.md` to its URL (e.g., for a page at `/guides/example`, access `/guides/example.md`).
 
 </Steps>
 
@@ -76,7 +76,7 @@ By default, both `.md` and `.mdx` files are served with the `.md` extension.
 Use the [`preserveExtension`](/configuration/#preserveextension) option to keep the original extension.
 </Aside>
 
-<Aside type="caution">
-This plugin requires Astro's [`trailingSlash`](https://docs.astro.build/en/reference/configuration-reference/#trailingslash) configuration option to be set to `"never"` or `"ignore"` (default).
-It is not compatible with `trailingSlash: "always"`.
+<Aside type="tip">
+With Astro's [`trailingSlash: "always"`](https://docs.astro.build/en/reference/configuration-reference/#trailingslash) option, files are served at `/path/index.md` instead of `/path.md`.
+In development mode, you need to access URLs with a trailing slash (e.g., `/path/index.md/`).
 </Aside>
