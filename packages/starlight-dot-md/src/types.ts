@@ -8,4 +8,5 @@ export type StarlightDotMdContext = {
 	excludePatterns: NonNullable<StarlightDotMdOptions["excludePatterns"]>;
 	includePatterns: NonNullable<StarlightDotMdOptions["includePatterns"]>;
 	preserveExtension: NonNullable<StarlightDotMdOptions["preserveExtension"]>;
+	trailingSlash: "always" | "never" | "ignore";
 };

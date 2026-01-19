@@ -25,3 +25,21 @@ export function isIncluded(slug: string): boolean {
 
 	return picomatch.isMatch(slug, context.includePatterns);
 }
+
+export function transformSlugForOutput(slug: string): string {
+	if (context.trailingSlash === "always" && slug !== "index") {
+		return `${slug}/index`;
+	}
+	return slug;
+}
+
+export function originalSlugFromOutput(outputSlug: string): string {
+	if (
+		context.trailingSlash === "always" &&
+		outputSlug !== "index" &&
+		outputSlug.endsWith("/index")
+	) {
+		return outputSlug.slice(0, -6);
+	}
+	return outputSlug;
+}
