@@ -17,7 +17,7 @@ This is a pnpm monorepo with two main workspaces:
 ### Root Level Commands
 ```bash
 # Run commands in the main package
-pnpm dot-md <command>
+pnpm dmd <command>
 
 # Run commands in the docs site
 pnpm web <command>
@@ -25,7 +25,7 @@ pnpm web <command>
 
 ### Package Development (`packages/starlight-dot-md/`)
 ```bash
-pnpm dot-md build       # Build the package using tsdown
+pnpm dmd build       # Build the package using tsdown
 ```
 
 ### Docs Development (`docs/`)
@@ -72,9 +72,9 @@ The plugin consists of the following source files:
 ## Development Workflow
 
 1. Make changes in `packages/starlight-dot-md/src/`
-2. Run `pnpm dot-md build` to compile the package
+2. Run `pnpm dmd build` to compile the package
 3. Test changes with `pnpm web dev` (plugin is already configured)
-4. Run `pnpm dot-md lint` before committing
+4. Run `pnpm dmd lint` before committing
 
 ## Plugin Hook Points
 

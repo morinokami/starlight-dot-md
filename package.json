@@ -10,7 +10,7 @@
 		}
 	},
 	"scripts": {
-		"dot-md": "pnpm --filter \"starlight-dot-md\"",
+		"dmd": "pnpm --filter \"starlight-dot-md\"",
 		"web": "pnpm --filter \"docs\""
 	},
 	"devDependencies": {

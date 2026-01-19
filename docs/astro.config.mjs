@@ -21,6 +21,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: "starlight-dot-md",
+			lastUpdated: true,
 			components: {
 				Hero: "./src/components/HeroWithoutImage.astro",
 				PageTitle: "./src/components/PageTitleWithCopyAsMarkdown.astro",

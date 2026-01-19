@@ -21,7 +21,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm dot-md build
+        run: pnpm dmd build
 
       - name: Publish
         run: pnpm pkg-pr-new publish './packages/starlight-dot-md'

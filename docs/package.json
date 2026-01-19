@@ -16,7 +16,7 @@
 		"@astrojs/sitemap": "3.7.0",
 		"@astrojs/starlight": "0.37.3",
 		"@astrojs/starlight-markdoc": "0.5.1",
-		"astro": "5.16.11",
+		"astro": "5.16.8",
 		"astro-og": "0.3.2",
 		"sharp": "0.34.5",
 		"starlight-dot-md": "workspace:*",

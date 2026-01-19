@@ -17,7 +17,8 @@ starlightDotMd({
 
 ### `includePatterns`
 
-An array of glob patterns to include pages for being served as `.md` files. When specified, only pages matching these patterns will be served.
+An array of glob patterns to include pages for being served as `.md` files. When
+specified, only pages matching these patterns will be served.
 
 ```js
 starlightDotMd({
@@ -25,7 +26,8 @@ starlightDotMd({
 });
 ```
 
-You can use `includePatterns` and `excludePatterns` together. Pages must match `includePatterns` (if specified) and not match `excludePatterns`.
+You can use `includePatterns` and `excludePatterns` together. Pages must match
+`includePatterns` (if specified) and not match `excludePatterns`.
 
 ```js
 starlightDotMd({
@@ -36,7 +38,8 @@ starlightDotMd({
 
 ### `preserveExtension`
 
-When set to `true`, `.mdx` and `.mdoc` files are served with their original extensions instead of being normalized to `.md`.
+When set to `true`, `.mdx` and `.mdoc` files are served with their original
+extensions instead of being normalized to `.md`.
 
 ```js
 starlightDotMd({
@@ -47,5 +50,5 @@ starlightDotMd({
 With this option enabled:
 
 - `.md` files are served at `.md` URLs (e.g., `/guides/example.md`)
-- `.mdoc` files are served at `.mdoc` URLs (e.g., `/markdoc.mdoc`)
 - `.mdx` files are served at `.mdx` URLs (e.g., `/index.mdx`)
+- `.mdoc` files are served at `.mdoc` URLs (e.g., `/markdoc.mdoc`)
