@@ -39,6 +39,10 @@ export default defineConfig({
 				"configuration",
 			],
 			plugins: [starlightDotMd()],
+			editLink: {
+				baseUrl:
+					"https://github.com/morinokami/starlight-dot-md/edit/main/docs/",
+			},
 		}),
 		astroOg(),
 		markdoc(),
