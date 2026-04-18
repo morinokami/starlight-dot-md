@@ -1,5 +1,11 @@
 # starlight-dot-md
 
+## 0.2.1
+
+### Patch Changes
+
+- [`19a37a2`](https://github.com/morinokami/starlight-dot-md/commit/19a37a25f444e25edf090f08cf442e7d1b23a6c3) Thanks [@morinokami](https://github.com/morinokami)! - Update dependencies
+
 ## 0.2.0
 
 ### Minor Changes
