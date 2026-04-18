@@ -40,14 +40,14 @@
 	},
 	"dependencies": {
 		"picomatch": "4.0.4",
-		"yaml": "2.8.2"
+		"yaml": "2.8.3"
 	},
 	"devDependencies": {
 		"@astrojs/starlight": "0.38.3",
 		"@types/node": "25.6.0",
 		"@types/picomatch": "4.0.3",
 		"astro": "6.1.7",
-		"publint": "0.3.16",
+		"publint": "0.3.18",
 		"tsdown": "0.21.9",
 		"typescript": "6.0.3"
 	},
