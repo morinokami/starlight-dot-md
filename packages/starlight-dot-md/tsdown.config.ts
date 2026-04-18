@@ -10,9 +10,12 @@ export default defineConfig({
 	format: ["esm"],
 	dts: true,
 	clean: true,
-	external: [
-		"astro:content",
-		"virtual:starlight-dot-md/context",
-		"virtual:starlight-dot-md/files",
-	],
+	deps: {
+		neverBundle: [
+			"@astrojs/starlight/types",
+			"astro:content",
+			"virtual:starlight-dot-md/context",
+			"virtual:starlight-dot-md/files",
+		],
+	},
 });
